@@ -1,8 +1,9 @@
-number =int(input("Enter a number to see its multiplication table:"))
-i=0
-for i  in range(0,11) :
-    result = number*i
-    print (number , "*" ,i, "=" , result)
+# Prompt the user for a number
+number = int(input("Enter a number to see its multiplication table: "))
 
+# Generate and print the multiplication table
+for i in range(1, 11):
+    product = number * i
+    print(f"{number} * {i} = {product}")
 
 
