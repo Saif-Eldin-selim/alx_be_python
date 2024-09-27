@@ -16,10 +16,14 @@ match priority:
         reminder_message = f"'{task}' is a high priority task"
         if time_bound == "yes":
             reminder_message += " that requires immediate attention today!"
+        else:
+            reminder_message += " but can be scheduled for later."
     case "medium":
         reminder_message = f"'{task}' is a medium priority task"
         if time_bound == "yes":
             reminder_message += " that should be addressed soon."
+        else:
+            reminder_message += " and can be completed at your convenience."
     case "low":
         reminder_message = f"'{task}' is a low priority task"
         if time_bound == "yes":
@@ -28,4 +32,3 @@ match priority:
             reminder_message += ". Consider completing it when you have free time."
 
 # Print the reminder message
-print(reminder_message)
