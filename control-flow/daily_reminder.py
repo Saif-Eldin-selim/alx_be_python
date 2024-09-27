@@ -1,38 +1,32 @@
-# Get task description from user
-task = input("Enter your task: ")
+# daily_reminder.py
 
-# Get task priority from user
-priority = input("Priority (high/medium/low): ").lower()
+# Function to get user input for the daily reminder
+def get_daily_reminder():
+    # Prompt for a single task
+    task = input("Enter your task: ")
+    priority = input("Priority (high/medium/low): ").lower()
+    time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-# Check if the task is time-bound
-time_bound = input("Is it time-bound? (yes/no): ").lower()
+    # Generate reminder based on priority and time sensitivity
+    match priority:
+        case "high":
+            reminder = f"'{task}' is a high priority task"
+        case "medium":
+            reminder = f"'{task}' is a medium priority task"
+        case "low":
+            reminder = f"'{task}' is a low priority task"
+        case _:
+            reminder = f"'{task}' has an unspecified priority"
 
-# Initialize reminder message
-reminder_message = ""
+    # Modify reminder based on time sensitivity
+    if time_bound == "yes":
+        reminder += " that requires immediate attention today!"
+    else:
+        reminder += ". Consider completing it when you have free time."
 
-# Process task based on priority
-match priority:
-    case "high":
-        reminder_message = f"'{task}' is a high priority task"
-        # Check if the task is time-bound
-        if time_bound == "yes":
-            reminder_message += " that requires immediate attention today!"
-        else:
-            reminder_message += " but can be scheduled for later."
-    case "medium":
-        reminder_message = f"'{task}' is a medium priority task"
-        # Check if the task is time-bound
-        if time_bound == "yes":
-            reminder_message += " that should be addressed soon."
-        else:
-            reminder_message += " and can be completed at your convenience."
-    case "low":
-        reminder_message = f"'{task}' is a low priority task"
-        # Check if the task is time-bound
-        if time_bound == "yes":
-            reminder_message += " but it can wait until later."
-        else:
-            reminder_message += ". Consider completing it when you have free time."
+    # Print the customized reminder
+    print(reminder)
 
-# Print the reminder message
-print(reminder_message)
+# Run the daily reminder function
+if __name__ == "__main__":
+    get_daily_reminder()
