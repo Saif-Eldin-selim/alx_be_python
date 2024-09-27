@@ -1,32 +1,38 @@
-# daily_reminder.py
-
-# Prompt for a single task
+# Get task description from user
 task = input("Enter your task: ")
+
+# Get task priority from user
 priority = input("Priority (high/medium/low): ").lower()
+
+# Check if the task is time-bound
 time_bound = input("Is it time-bound? (yes/no): ").lower()
 
-# Process the task based on priority
+# Initialize reminder message
+reminder_message = ""
+
+# Process task based on priority
 match priority:
     case "high":
-        reminder = f"'{task}' is a high priority task"
+        reminder_message = f"'{task}' is a high priority task"
+        # Check if the task is time-bound
         if time_bound == "yes":
-            reminder += " that requires immediate attention today!"
+            reminder_message += " that requires immediate attention today!"
         else:
-            reminder += "."
+            reminder_message += " but can be scheduled for later."
     case "medium":
-        reminder = f"'{task}' is a medium priority task"
+        reminder_message = f"'{task}' is a medium priority task"
+        # Check if the task is time-bound
         if time_bound == "yes":
-            reminder += " it should be done soon."
+            reminder_message += " that should be addressed soon."
         else:
-            reminder += " You can schedule it for later."
+            reminder_message += " and can be completed at your convenience."
     case "low":
-        reminder = f"'{task}' is a low priority task"
+        reminder_message = f"'{task}' is a low priority task"
+        # Check if the task is time-bound
         if time_bound == "yes":
-            reminder += " but consider completing it when you have free time."
+            reminder_message += " but it can wait until later."
         else:
-            reminder += " Consider completing it when you have free time."
-    case _:
-        reminder = "Invalid priority level. Please enter high, medium, or low."
+            reminder_message += ". Consider completing it when you have free time."
 
-# Provide a customized reminder
-print(reminder)
+# Print the reminder message
+print(reminder_message)
