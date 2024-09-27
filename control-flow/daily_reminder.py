@@ -18,5 +18,5 @@ match priority:
 if time_bound == "yes":
     reminder += " that requires immediate attention today!"
 
-# Provide customized reminder
+# Provide customized reminder using f-string
 print(reminder)
